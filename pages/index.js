@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import Link from "next/link";
 
 export default function Home() {
+  console.log(Date.now());
   return (
     <div className={styles.container}>
       <Head>

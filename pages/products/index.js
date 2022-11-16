@@ -4,11 +4,15 @@ import { useState, useEffect } from "react";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [categoryFilter, setCategoryFilter] = useState(null); //"Food", "Technology"
 
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const response = await fetch("/api/products");
+        const url = categoryFilter
+          ? `/api/products?category=${categoryFilter}`
+          : "/api/products";
+        const response = await fetch(url);
         if (response.ok) {
           const data = await response.json();
           setProducts(data);
@@ -23,7 +27,7 @@ const Products = () => {
       }
     };
     getProducts();
-  }, []);
+  }, [categoryFilter]);
 
   return (
     <>
@@ -34,6 +38,20 @@ const Products = () => {
       </Head>
       <div>
         <h1>Products Dashboard</h1>
+        <select
+          onChange={(event) => {
+            if (event.target.value === "all") {
+              setCategoryFilter(null);
+            } else {
+              setCategoryFilter(event.target.value);
+            }
+          }}
+        >
+          <option value="all">Alle</option>
+          <option value="Food">Food</option>
+          <option value="Technology">Technology</option>
+        </select>
+        <p>{categoryFilter}</p>
         <ul>
           {products.map((product) => {
             return (

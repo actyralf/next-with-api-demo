@@ -1,6 +1,10 @@
 import { products } from "../_data/products";
 
 export default function handler(req, res) {
+  console.log("req.method", req.method);
+  console.log("req.query", req.query);
+  console.log("req.body", req.body);
+
   switch (req.method) {
     case "GET":
       if (req.query.category) {
