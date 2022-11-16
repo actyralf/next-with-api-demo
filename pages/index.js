@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
+import styled from "styled-components";
 
 export default function Home() {
   console.log(Date.now());
@@ -13,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Hallo Next</h1>
+      <MyHeading>Hallo Next</MyHeading>
 
       <div>
         <Link href="/products">Zu den Produkten per Link</Link>
@@ -21,3 +22,7 @@ export default function Home() {
     </div>
   );
 }
+
+const MyHeading = styled.h1`
+  color: green;
+`;

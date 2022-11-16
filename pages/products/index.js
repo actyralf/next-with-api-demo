@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import styles from "../../styles/ProductDashboard.module.css";
 import { useState, useEffect } from "react";
 
 const Products = () => {
@@ -37,7 +38,7 @@ const Products = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <h1>Products Dashboard</h1>
+        <h1 className="test">Products Dashboard</h1>
         <select
           onChange={(event) => {
             if (event.target.value === "all") {
@@ -52,7 +53,7 @@ const Products = () => {
           <option value="Technology">Technology</option>
         </select>
         <p>{categoryFilter}</p>
-        <ul>
+        <ul className={styles["product-list"]}>
           {products.map((product) => {
             return (
               <li key={product.id}>
