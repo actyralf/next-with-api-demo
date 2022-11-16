@@ -14,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <MyHeading>Hallo Next</MyHeading>
+      <MyHeading>Ich bin live!!</MyHeading>
 
       <div>
         <Link href="/products">Zu den Produkten per Link</Link>
