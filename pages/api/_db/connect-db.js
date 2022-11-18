@@ -7,8 +7,9 @@ const connectDB = (handler) => async (req, res) => {
   }
 
   // Use new db connection
+  console.log("Connection String:", process.env.MONGO_DB_URI);
+
   await mongoose.connect(process.env.MONGO_DB_URI);
-  console.log(process.env.MONGO_DB_URI);
   return handler(req, res);
 };
 
