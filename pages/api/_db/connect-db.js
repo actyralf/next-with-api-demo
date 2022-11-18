@@ -5,8 +5,10 @@ const connectDB = (handler) => async (req, res) => {
     // Use current db connection
     return handler(req, res);
   }
+
   // Use new db connection
   await mongoose.connect(process.env.MONGO_DB_URI);
+  console.log(process.env.MONGO_DB_URI);
   return handler(req, res);
 };
 
